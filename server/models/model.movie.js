@@ -14,6 +14,7 @@ const MovieSchema = new mongoose.Schema(
     poster: {
       type: String,
     },
+    images:[String],
     description: {
       type: String,
     },
