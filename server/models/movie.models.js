@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// const User = require('./user.model')
 const MovieCast = mongoose.Schema({
   name: String,
   image: String,
@@ -30,8 +30,11 @@ const MovieSchema = new mongoose.Schema(
       type: Number,
     },
     rating: Number,
+
   },
   { timestamps: true }
+
+
 );
 
 const Movie = mongoose.model("Movie", MovieSchema);
