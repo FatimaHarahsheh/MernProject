@@ -8,10 +8,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Last name is required"]
     },
-    rate: {
-        type: Number,
-        required: [true, "Phone Number is required"]
-    },
 
 }, { timestamps: true });
 
