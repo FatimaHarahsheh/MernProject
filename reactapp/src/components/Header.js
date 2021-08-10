@@ -70,8 +70,8 @@ const Header = () => {
             <IconButton edge="start" className={classes.menuButton}>
               <img className="header-img" src={logo} alt="logo" />
               <Link to="/" className="no-underline">
-              <Typography variant="h3" color="secondary" className={classes.headerTitle}>
-                Movies
+              <Typography variant="h4" color="secondary" className={classes.headerTitle}>
+              Blue Movies
               </Typography></Link>
             </IconButton>
             <div className={classes.list}>
