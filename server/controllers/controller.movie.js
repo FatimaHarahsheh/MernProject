@@ -1,4 +1,4 @@
-const Movie = require('../models/model.movie')
+const Movie = require('../models/movie.models')
 
 module.exports.addMovie = (req, res) => {
     Movie.create(req.body)
