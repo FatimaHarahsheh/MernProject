@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
-const MovieCastS = new  mongoose.Schema({
-    name: String,
-    image: String,
-  });
-  const MovieCast = mongoose.model("Cast",MovieCastS );
-  module.exports = MovieCast;
+const castSchema = new  mongoose.Schema({
+  name: String,
+  image: String,
+});
+
+  const Cast = mongoose.model("Cast",castSchema );
+  module.exports = Cast;

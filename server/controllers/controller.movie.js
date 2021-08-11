@@ -19,6 +19,8 @@ module.exports.addMovie = (req, res, next) => {
   var obj = {
     name: req.body.name,
     poster: req.body.poster,
+    rating:req.body.rating,
+    casts:req.body.casts
   }
   Movie.create(obj)
     .then((movie) => {
@@ -28,6 +30,12 @@ module.exports.addMovie = (req, res, next) => {
         { new: true }
       )
         .populate("movies")
+        // MovieCast.findOneAndUpdate(
+        //   { name: req.body.category },
+        //   { $addToSet: { movies: movie._id } },
+        //   { new: true }
+        // )
+        //   .populate("movies")
         .then((created) => res.json(created));
       res.json(movie);
     })
