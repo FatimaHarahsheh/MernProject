@@ -1,26 +1,19 @@
 const Category = require("../models/category.models");
 const Movie = require("../models/movie.models");
-const MovieCast = require("../models/cast.model");
 
-// module.exports.addMovie = (req, res) => {
-//     Movie.create(req.body)
-//       .then( (newMovie) => res.json(newMovie ))
-//       .catch((err) => res.json({ errorMessage: hi }));
-//   };
-
-module.exports.createCategory = (request, response) => {
-  Category.create(request.body)
-    .then((Category) => response.json(Category))
-    .catch((err) => response.json(err));
-};
-
+//Movies controllers
 module.exports.addMovie = (req, res, next) => {
-  // console.log(request.file.originalname)
   var obj = {
     name: req.body.name,
     poster: req.body.poster,
     rating:req.body.rating,
-    casts:req.body.casts
+    images: req.body.images,
+    description:req.body.description,
+    language:req.body.language,
+    trailer:req.body.trailer,
+    year:req.body.year,
+    rating:req.body.rating,
+    numberOfRating:req.body.numberOfRating
   }
   Movie.create(obj)
     .then((movie) => {
@@ -30,34 +23,11 @@ module.exports.addMovie = (req, res, next) => {
         { new: true }
       )
         .populate("movies")
-        // MovieCast.findOneAndUpdate(
-        //   { name: req.body.category },
-        //   { $addToSet: { movies: movie._id } },
-        //   { new: true }
-        // )
-        //   .populate("movies")
         .then((created) => res.json(created));
       res.json(movie);
     })
     .catch((err) => console.log(err));
 };
-
-// module.exports.createBook = (request, response, next) => {
-//   console.log(request.file.originalname)
-//   var obj = {
-//       name: request.body.name,
-//       description: request.body.description,
-//       url:request.body.url,
-//       image: request.file.originalname,
-//   }
-//   Book.create(obj)
-//   .then(book =>{
-//       Category.findOneAndUpdate({name: request.body.category},{$addToSet:{books:book._id}}, {new:true}).populate('books')
-//       .then(created => response.json(created))
-//       response.json(book)
-//   })
-//   .catch(err => console.log(err))
-// }
 
 module.exports.allMovies = (req, res) => {
   Movie.find()
@@ -68,14 +38,6 @@ module.exports.allMovies = (req, res) => {
 module.exports.movie = (req, res) => {
   Movie.findOne({ _id: req.params.id })
     .then((specificProduct) => res.json(specificProduct))
-    .catch((err) =>
-      res.status(400).json({ message: "Something went wrong", error: err })
-    );
-};
-
-module.exports.getCategory = (req, res) => {
-  Category.findOne({ _id: req.params.id })
-    .then((category) => res.json(category))
     .catch((err) =>
       res.status(400).json({ message: "Something went wrong", error: err })
     );
@@ -99,16 +61,29 @@ module.exports.deleteMovie = (req, res) => {
     );
 };
 
-module.exports.addCast = (req, res) => {
-  MovieCast.create(req.body)
-    .then((newCast) => res.json(newCast))
-    .catch((err) => res.json({ errorMessage: hi }));
+// category controllers
+module.exports.createCategory = (request, response) => {
+  Category.create(request.body)
+    .then((Category) => response.json(Category))
+    .catch((err) => response.json(err));
 };
 
-// module.exports.addCategory = (req, res) => {
-//   Category.create(req.body)
-//     .then((newCategory) => res.json(newCategory ))
-//     .catch((err) => res.json({ errorMessage: hi }));
-// };
+module.exports.getCategory = (req, res) => {
+  Category.findOne({ _id: req.params.id })
+    .then((category) => res.json(category))
+    .catch((err) =>
+      res.status(400).json({ message: "Something went wrong", error: err })
+    );
+};
 
-// The method below is new
+module.exports.getCategoryMovies = (request, response) => {
+  Category.findOne({name:request.params.name}).populate('movies')
+      .then(movies => response.json(movies))
+      .catch(err => response.status(400).json(err))
+}
+
+module.exports.allCats = (req, res) => {
+  Category.find()
+    .then((Movies) => res.json(Movies))
+    .catch((err) => res.status(400).json({ errorMessage: err }));
+};
