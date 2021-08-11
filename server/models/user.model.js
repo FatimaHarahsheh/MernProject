@@ -8,15 +8,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Last name is required"]
     },
-    phoneNumber: {
-        type: String,
-        required: [true, "Phone Number is required"]
-    },
-    numberOfTickets: {
-        type: Number,
-        required: [true, "Number of tickets is required"],
-    },
-
     status: { type: Boolean, default: false }
 }, { timestamps: true });
 
