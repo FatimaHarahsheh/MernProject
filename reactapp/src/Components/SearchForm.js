@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import "../static/css/SearchForm.css";  
+import "../static/css/SearchForm.css";
+import { Button } from "@material-ui/core";
+import { createTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 const SearchForm = () => {
   const [title, setTitle] = useState("");
@@ -9,7 +18,7 @@ const SearchForm = () => {
   const [orderBy, setOrderBy] = useState("");
   const [result, setResult] = useState([]);
   const [anyMovies, setAnyMovies] = useState(false);
-  
+
   const movies = [
     {
       name: "the my",
@@ -176,49 +185,122 @@ const SearchForm = () => {
     }
   };
 
+  const useStyles = makeStyles((theme) => ({
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120,
+        },
+    selectEmpty: {
+      marginTop: theme.spacing(2),
+    },
+  }));
+
+  const classes = useStyles();
+
+  const theme = createTheme({
+    palette: {
+      secondary: {
+        main: "#333333",
+      },
+      primary: {
+        light: "#ff7961",
+        main: "#ffffff",
+        dark: "#ba000d",
+        contrastText: "#000",
+      },
+    },
+  });
   return (
-    <div>
-      <form className="search-form"  onSubmit={search}>
+    <div>          <ThemeProvider theme={theme}>
+      <form className="search-form" onSubmit={search}>
+        <div className="top-box">
           <div className="search-box">
-        <input
-          type="text"
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="movie title "
-        />
-        <input type="submit" value="Search" />
+            <input
+              type="text"
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder=" "
+            />
+
+            {/* <button type="reset"></button> */}
+          </div>
+          {/* <input type="submit" value="Search" /> */}
+            <Button
+              type="submit"
+              variant="contained"
+              style={{ height: "50px", margin: " auto 0px auto 20px" }}
+              color="secondary"
+            >
+              Search
+            </Button>
+        </div>
         <br />
-        <select onChange={(e) => setGenre(e.target.value)}>
-          <option value="">Genre:</option>
-          <option value="horror">horror</option>
-          <option value="comedy">comedy</option>
-          <option value="science">science</option>
-          <option value="romance">romance</option>
-          <option value="action">action</option>
-        </select>
-        <select onChange={(e) => setRating(e.target.value)}>
-          <option value="">Rating:</option>
-          <option value="9">9+</option>
-          <option value="8">8+</option>
-          <option value="7">7+</option>
-          <option value="6">6+</option>
-          <option value="5">5+</option>
-          <option value="4">4+</option>
-          <option value="3">3+</option>
-          <option value="2">2+</option>
-          <option value="1">1+</option>
-        </select>
-        <select onChange={(e) => setLanguage(e.target.value)}>
-          <option value="">Language:</option>
-          <option value="arabic">arabic</option>
-          <option value="english">english</option>
-          <option value="hindi">hindi</option>
-        </select>
-        <select onChange={(e) => setOrderBy(e.target.value)}>
-          <option value="">Orderby:</option>
-          <option value="date">release date</option>
-          <option value="rating">rating</option>
-          <option value="popularity">popularity</option>
-        </select>
+        <div className="select-box">
+
+          <FormControl className={classes.formControl}>
+            <InputLabel  id="demo-simple-select-label">Genre:</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              variant="filled"
+              // color="primary"
+              onChange={(e) => setGenre(e.target.value)}
+            >
+              <MenuItem value="">None</MenuItem>
+              <MenuItem value="horror">horror</MenuItem>
+              <MenuItem value="comedy">comedy</MenuItem>
+              <MenuItem value="science">science</MenuItem>
+              <MenuItem value="romance">romance</MenuItem>
+              <MenuItem value="action">action</MenuItem>
+            </Select>
+          </FormControl>
+
+
+          <FormControl className={classes.formControl}>
+            <InputLabel id="demo-simple-select-label">Rating:</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+               onChange={(e) => setRating(e.target.value)}>
+          <MenuItem value="">None</MenuItem>
+            <MenuItem value="9">9+</MenuItem>
+            <MenuItem value="8">8+</MenuItem>
+            <MenuItem value="7">7+</MenuItem>
+            <MenuItem value="6">6+</MenuItem>
+            <MenuItem value="5">5+</MenuItem>
+            <MenuItem value="4">4+</MenuItem>
+            <MenuItem value="3">3+</MenuItem>
+            <MenuItem value="2">2+</MenuItem>
+            <MenuItem value="1">1+</MenuItem>
+          </Select>
+          </FormControl>
+          <FormControl className={classes.formControl}>
+            <InputLabel id="demo-simple-select-label">language:</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+               onChange={(e) => setLanguage(e.target.value)}>
+            <MenuItem value="">None</MenuItem>
+            <MenuItem value="arabic">arabic</MenuItem>
+            <MenuItem value="english">english</MenuItem>
+            <MenuItem value="hindi">hindi</MenuItem>
+          </Select>
+          </FormControl>
+
+
+          <FormControl className={classes.formControl}>
+            <InputLabel id="demo-simple-select-label">orderBy:</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+             onChange={(e) => setOrderBy(e.target.value)}>
+            <MenuItem value="">None</MenuItem>
+            <MenuItem value="date">release date</MenuItem>
+            <MenuItem value="rating">rating</MenuItem>
+            <MenuItem value="popularity">popularity</MenuItem>
+          </Select>
+          </FormControl>
+
+
         </div>
       </form>
       <br />
@@ -241,6 +323,8 @@ const SearchForm = () => {
       </ul>
       {console.log(result)}
       {console.log(anyMovies)}
+      </ThemeProvider>
+
     </div>
   );
 };
