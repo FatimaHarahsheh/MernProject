@@ -8,28 +8,36 @@ const MovieCast = mongoose.Schema({
 
 const MovieSchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
+      name: {
+        type: String,
+      },
+      poster: {
+        type: String,
+      },
+      images:[String],
+      description: {
+        type: String,
+      },
+      language: {
+        type: String,
+      },
+      genre: [String],
+      trailer: {
+        type: String,
+      },
+      cast: MovieCast,
+      year: {
+        type: Number,
+      },
+    rating: {
+    type:Number,
+    defult:0
     },
-    poster: {
-      type: String,
-    },
-    images:[String],
-    description: {
-      type: String,
-    },
-    language: {
-      type: String,
-    },
-    genre: [String],
-    trailer: {
-      type: String,
-    },
-    cast: MovieCast,
-    year: {
-      type: Number,
-    },
-    rating: Number,
+    numberOfrating: {
+       type:Number,
+       defult:0
+    }
+    
 
   },
   { timestamps: true }
