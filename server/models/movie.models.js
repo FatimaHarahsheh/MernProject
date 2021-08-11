@@ -1,9 +1,4 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-require("./cast.model");
-// const User = require('./user.model')
-
-
 
 const MovieSchema = new mongoose.Schema(
   {
@@ -20,23 +15,15 @@ const MovieSchema = new mongoose.Schema(
     language: {
       type: String,
     },
-    genre: [String],
     trailer: {
       type: String,
     },
-    // cast:{type: Schema.Types.ObjectId,ref:'Cast'},
-    casts: [castSchema],
     year: {
       type: Number,
     },
-    rating: {
-      type: Number,
-      default: 0
-    },
-    numberOfrating: {
-      type: Number,
-      default: 0,
-    },
+    rating:[Number],
+
+    numberOfRating: Number
   },
   { timestamps: true }
 );
