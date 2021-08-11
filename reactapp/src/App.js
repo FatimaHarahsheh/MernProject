@@ -1,5 +1,5 @@
 import "./App.css"; 
-import Top5 from "./components/Top5";
+// import Top5 from "./components/Top5";
 
 function App() {
   return (
