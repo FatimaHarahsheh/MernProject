@@ -10,7 +10,13 @@ const CategorySchema = new mongoose.Schema({
     movies:[{type:mongoose.Schema.Types.ObjectId, ref: 'Movie' }]
 
 }, { timestamps: true });
-module.exports.Category = mongoose.model('Category', CategorySchema);
+
+// module.exports.Category = mongoose.model('Category', CategorySchema);
+
+const Category = mongoose.model("Category", CategorySchema);
+
+module.exports = Category;
+
 
 // const mongoose = require('mongoose')
 // require('./movie.models')

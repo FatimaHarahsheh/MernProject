@@ -8,4 +8,5 @@ module.exports = (app) => {
     app.get('/api/movie/:id',MC.movie);
     app.put('/api/edit/:id',MC.updateMovie);
     app.delete('/api/delete/:id',MC.deleteMovie);
+    app.get('/api/category/:id',MC.getCategory);
 }
