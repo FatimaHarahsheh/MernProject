@@ -12,6 +12,8 @@ import { createTheme } from "@material-ui/core/styles";
 const Header = () => {
   const useStyles = makeStyles((theme) => ({
     root: {
+      marginBottom:'150px',
+      display:'flex'
     },
     menuButton: {
       marginRight: theme.spacing(25),
