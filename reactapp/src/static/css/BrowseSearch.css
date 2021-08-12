@@ -1,0 +1,46 @@
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.search{
+    padding-top:20px;
+    background-color: rgb(100,100,100,0.8);
+    width: 98%;
+    border-radius: 15px ;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.search-list {
+  overflow: auto;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item {
+  float: left;
+  margin: 3%;
+}
+button {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 2em 0;
+  border-radius: 2em;
+  /* box-sizing: border-box; */
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #557283;
+  text-align: center;
+  transition: all 0.2s;
+  border: 0px;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #4095c6;
+}

@@ -221,7 +221,6 @@ const SearchForm = () => {
               placeholder=" "
             />
 
-            {/* <button type="reset"></button> */}
           </div>
           {/* <input type="submit" value="Search" /> */}
             <Button
@@ -303,22 +302,6 @@ const SearchForm = () => {
       </form>
       <br />
       <br />
-      <ul>
-        {anyMovies ? (
-          [
-            result.map((movie, i) => {
-              return (
-                <li>
-                  {movie.name} date:{movie.date} rate:{movie.rating} popularity:
-                  {movie.numOfRatings}
-                </li>
-              );
-            }),
-          ]
-        ) : (
-          <p>no search results!</p>
-        )}
-      </ul>
       {console.log(result)}
       {console.log(anyMovies)}
       </ThemeProvider>
