@@ -47,6 +47,7 @@ body {
     box-sizing: border-box;
     border-radius: 50px;
     transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+    background-color: #a3a1a1  ;
 }
 .search-box input[type="text"]:focus {
     outline: none;
@@ -54,17 +55,21 @@ body {
 .search-box input[type="text"]:focus, .search-box input[type="text"]:not(:placeholder-shown) {
     width: 100%;
     transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    background-color: #a3a1a1  ;
 }
 .search-box input[type="text"]:focus + button[type="reset"], .search-box input[type="text"]:not(:placeholder-shown) + button[type="reset"] {
     bottom: 13px;
     right: 10px;
     transition: bottom 150ms ease-out 800ms, right 150ms ease-out 800ms;
+    background-color: #a3a1a1  ;
+
 }
 .search-box input[type="text"]:focus + button[type="reset"]:after, .search-box input[type="text"]:not(:placeholder-shown) + button[type="reset"]:after {
     top: 0;
     right: 10px;
     opacity: 1;
     transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+    background-color: #a3a1a1  ;
 }
 .search-box button[type="reset"] {
     background-color: transparent;
@@ -80,6 +85,7 @@ body {
     bottom: -13px;
     right: -15px;
     transition: bottom 150ms ease-out 150ms, right 150ms ease-out 150ms;
+    background-color: #a3a1a1  ;
 }
 .search-box button[type="reset"]:before, .search-box button[type="reset"]:after {
     content: "";
@@ -87,6 +93,7 @@ body {
     border-left: solid 5px black;
     position: absolute;
     transform: rotate(-45deg);
+    background-color: #a3a1a1  ;
 }
 .search-box button[type="reset"]:after {
     transform: rotate(45deg);
@@ -94,6 +101,7 @@ body {
     top: -20px;
     right: -10px;
     transition: top 150ms ease-out, right 150ms ease-out, opacity 150ms ease-out;
+    background-color: #a3a1a1  ;
 }
 
 body{color:white}
@@ -103,9 +111,13 @@ body{color:white}
     width: 70%;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(0,0,0,0.6);
+    /* background-color: rgb(0,0,0,0.6); */
+    background-color: #e3dede;
     padding: 40px;
     align-content: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    /* border: 1px dotted black; */
+    border-radius: 35px ;
 }
 
 /* input, select{

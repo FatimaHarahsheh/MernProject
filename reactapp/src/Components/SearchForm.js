@@ -204,7 +204,7 @@ const SearchForm = () => {
       },
       primary: {
         light: "#ff7961",
-        main: "#ffffff",
+        main: "#333333",
         dark: "#ba000d",
         contrastText: "#000",
       },
@@ -241,8 +241,6 @@ const SearchForm = () => {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              variant="filled"
-              // color="primary"
               onChange={(e) => setGenre(e.target.value)}
             >
               <MenuItem value="">None</MenuItem>
