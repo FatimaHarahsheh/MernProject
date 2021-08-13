@@ -16,7 +16,7 @@ const StarRating = (props) => {
   const [casting, setcasing] = useState({});
   const [wed,setwed] = useState("90px")
   // const [name,setName]=useState("");
-  const id = "611683e7331e43144caff188"; //changed after to id from props
+  const id = "6116e83a449a5f10ec0dd99b"; //changed after to id from props
   useEffect(() => {
     axios.get("http://localhost:8000/api/movie/" + id).then((res) => {
       setmovie(res.data);
@@ -42,19 +42,19 @@ const StarRating = (props) => {
   
   return (
 
-    <div>
-      <div style={{ display: "flex" }}>
-        <img src={movie.poster} style={{ width: "280px", height: "350px", margin: "10px" }} />
+    <div >
+      <div style={{ display: "flex",width:'500px' }}>
+        <img src={movie.poster} style={{ width: "280px", height: "350px", margin: "10px",background:'none' }} />
         < div >
 
-          <div style={{ width: "500px" }}>
+          <div style={{ width: "500px",background:'red',borderRadius:'5%' }}>
             <h1>Movie Name: {movie.name}</h1>
             <h3>Movie Language: {movie.language}</h3>
             <h3>Relase Date: {movie.year}</h3>
             <h3 >The Movie Rating Is :{String(averageofrating).substring(0, 3)} / 5 </h3>
 
-          </div>
-          <div style={{ width: "300px", marginLeft: "50px", display: "flex" }}>
+         
+          <div style={{ width: "300px", marginLeft: "50px", display: "flex", }}>
 
             <div>
               {[...Array(5)].map((star, i) => {
@@ -89,9 +89,10 @@ const StarRating = (props) => {
 
             </div>
           </div>
-
-          <br />
-          <div className="dropdown">
+          <br /> <br /> <br /> <br /> <br /> <br />  
+          </div>
+        
+          <div className="dropdown" style={{marginTop:'-50px'}}>
                 <button type="button" class="btn btn-outline-secondary">Movie Cast</button>
                 <div class="dropdown-content">
                 <div style={{ display: 'flex' }}>
@@ -109,7 +110,7 @@ const StarRating = (props) => {
               <div style={{ display: 'flex' }}>
               <img src={casting.castimg5} className="actor" />
               <h3 className="fonter">{casting.actorfive}</h3></div>
-
+              
                 </div>
               </div>
          

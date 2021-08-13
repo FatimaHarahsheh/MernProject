@@ -1,21 +1,58 @@
-import "../static/css/demo.css";
-import "../static/css/normalize.css";
-import "../static/css/set1.css";
-import "../static/css/set2.css";
-
+import "../static/css/postereffect.css";
 import React, { useState, useEffect } from "react";
-import { FaStar } from "react-icons/fa";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/dist/css/themes/splide-sea-green.min.css";
+import "../static/css/top_5.css";
 import axios from "axios";
-import { Animated } from "react-animated-css";
 
 const Movieposter =(props) =>{
     const [movies, setmovies] = useState([]);
-    axios.get("http://localhost:8000/api/movies" ).then((res) => {
-        setmovies(res.data)
+    const [averageofrating, setavg] = useState();
 
-    return(
-            {movies.map((movie,idx)=>)}
-    )
-})}
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/movies" )
+            .then(res => {setmovies(res.data)
+                setavg(res.data.averageofrating);
+            });
+            
+    }, [])
+  
+    return (
+      <div className="top-5">
+        <h1>trending now:</h1>
+        <Splide
+          options={{
+            rewind: true,
+            perPage: 5,
+            perMove: 1,
+            gap: "0.5rem",
+            autoplay     : true,
+            pauseOnHover : false,
+            resetProgress: false,
+            arrows       : 'slider',
+            speed:400,
+            interval:2000
+          }}
+        >
+          {movies.map((movie, i) => {
+            return (
+              <SplideSlide>
+      <div class="hovereffect">
+  
+                              <img class="img-responsive"  src={movie.poster} style={{width:'350px',height:'350px'}} />
+                              <div class="overlay">
+                                  <p>{movie.name}</p>
+                                  
+                                  <p>rate: {String(averageofrating).substring(0, 3)} / 5</p>
+                                 <br /><br /><br /><br /><br /><br /><br /><br />
+                                  <a href="#" style={{  padding: '1em 1.5em'
+,minWidth:'300px',height:'200px',textDecoration:'none',border:'1px solid black',background:'gray',borderRadius:'5%' }}>more details</a>
 
+                                  </div></div>
+                                      </SplideSlide>
+            );
+          })}
+   </Splide></div> );
+  };
+  
 export default Movieposter

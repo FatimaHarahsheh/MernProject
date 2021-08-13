@@ -1,35 +1,38 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-import { set } from 'mongoose';
 
 
 const Popularity = () => {
-    const [movie, setmovie] = useState([]);
-    const [avg, setavg] = useState();
+    const [movies, setmovie] = useState([]);
     useEffect(() => {
         axios.get('http://localhost:8000/api/topmovies')
             .then((res) =>{
                 setmovie(res.data)
-                setavg(movie.rating/movie.numberOfRating)
 
                 })},[])
                 
     return (
         <>
+                <div style={{width:"1200px"}}>                 
+                <div style={{ display:'flex',justifyContent:'space-evenly' ,margin:'10px' ,width:"1200px",flexWrap:'wrap'}}>
 
-            {movie.map((movies, idx)=>{
+
+            {movies.map((movie, idx)=>{
                 return(
-                    <div style={{display:'flex'}}>
-                    <div style={{width:'300px',height:'50px',margin:'40px'}}>
-                    <p key={idx}>{movies.name} </p>
-                               <p>{movies.language}</p>
-                               <p>{movies.year}</p>
-                               <p>{movies.rating}</p>
-                               <p>{avg}</p>
-                    </div></div>
+                               <figure className="imghvr-push-up" style={{width:'300px',height:'300px',margin:'20px'}} >
+                                <img src={movie.poster} style={{width:'300px',height:'300px'}} />
+                                <figcaption>
+                                <p>{movie.name}</p>
+                                <p>{movies.year}</p>
+
+                                <p>rate: {movie.rating}/5</p>
+                                </figcaption>
+                                <a href="#"></a>
+                            </figure>
+                   
                 )
             })}
-        </>
+        </div>   </div></>
     )
 }
 
