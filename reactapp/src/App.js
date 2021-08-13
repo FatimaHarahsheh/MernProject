@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <StarRating/>
-      <SearchForm />
-      <Top5/>
+      {/* <SearchForm />
+      <Top5/> */}
       {/* <Header/> */}
     </div>
   );

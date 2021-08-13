@@ -11,14 +11,11 @@ import { Animated } from "react-animated-css";
 const Movieposter =(props) =>{
     const [movies, setmovies] = useState([]);
     axios.get("http://localhost:8000/api/movies" ).then((res) => {
-        setmovies()
-
-
+        setmovies(res.data)
 
     return(
-
-
+            {movies.map((movie,idx)=>)}
     )
-}
+})}
 
 export default Movieposter
