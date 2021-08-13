@@ -32,8 +32,13 @@ module.exports.addMovie = (req, res, next) => {
 };
 
 module.exports.allMovies = (req, res) => {
-  Movie.find()
-    .then((Movies) => res.json({ Movies: Movies }))
+  Movie.find({})
+    .then((Movies) => res.json(Movies))
+    .catch((err) => res.status(400).json({ errorMessage: err }));
+};
+module.exports.topMovies = (req, res) => {
+  Movie.find({}).sort({rating:'1'})
+    .then((Movies) => res.json(Movies))
     .catch((err) => res.status(400).json({ errorMessage: err }));
 };
 

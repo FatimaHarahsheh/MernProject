@@ -15,8 +15,8 @@ function App() {
      
       {/* <Header/> */}
       <Movieposter />
-      {/* <Popularity /> */}
-       {/* <Top5/> */}
+      <Popularity />
+       <Top5/>
     </div>
   );
 }
