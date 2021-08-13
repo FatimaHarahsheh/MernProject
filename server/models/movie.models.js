@@ -21,9 +21,16 @@ const MovieSchema = new mongoose.Schema(
     year: {
       type: Number,
     },
-    rating:[Number],
+    rating:{
+      type: Number,
+    },
 
-    numberOfRating: Number
+    numberOfRating: {
+      type: Number,
+    },
+    averageofrating:{
+      type: Number,
+    }
   },
   { timestamps: true }
 );

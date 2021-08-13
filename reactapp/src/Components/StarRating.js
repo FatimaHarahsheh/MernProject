@@ -1,29 +1,3 @@
-// import React,{useState} from 'react'
-// import {FaStar} from 'react-icons/fa'
-// const StarRating = () =>{
-//     const[rating,setRating]=useState(null);
-//     const[hover,setHover]=useState(null);
-
-//     return (
-//         <div>
-//          {[...Array(5)].map((star,i) =>  {
-//              const ratingValue= i + 1;
-//        return (
-//             <label>
-//                 <input style={{display:'none'}}
-//                 type="radio" name="rating"
-//                 value={ratingValue} onClick={()=>setRating(ratingValue)}/>
-//                 <FaStar style={{cursor:'pointer',  transition: 'width 50s',transform: 'translate(-20px)'}}   color={ratingValue <= (hover ||rating) ?"#ffc107":"#e4e5e9"} size={100} onMouseEnter={() => setHover(ratingValue)} onMouseOut={() => setHover(null)} />
-//             </label>
-//        );
-// })}
-//     <p>The Movie Rating Is :{rating}</p>
-//     </div>
-//     );
-
-// };
-
-// export default StarRating;
 import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import axios from "axios";
@@ -33,31 +7,29 @@ const StarRating = (props) => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const [movie, setmovie] = useState({});
-  const [name, setname] = useState("zsewq");
   const [numberOfRating, setnum] = useState();
-  const [rater, setrater] = useState();
   const [rerender, setrerender] = useState(false);
-  const [sarating, setrating] = useState();
+  const [averageofrating, setavg] = useState();
   const [transfer, settransfer] = useState(false);
-  const id = "6113dd315f33e71f982c907d";
+  const id = "6115500b564ad721448a467a"; //changed after to id from props
   useEffect(() => {
     axios.get("http://localhost:8000/api/movie/" + id).then((res) => {
       setmovie(res.data);
       // setname(res.data.name)
       setnum(res.data.numberOfRating);
-      setrating(res.data.rating);
+      setRating(res.data.rating);
       console.log(res.data._id);
-    });
+      setavg(res.data.averageofrating);
     setrerender(false);
-    setRating(sarating / numberOfRating);
+    });
   }, [rerender]);
   
   const updaterate = (rating, numberOfRating) => {
     axios
       .put("http://localhost:8000/api/edit/" + id, {
-        name,
         rating,
         numberOfRating,
+        averageofrating:rating/numberOfRating
       })
       .then((res) => setrerender(true));
   };
@@ -78,7 +50,7 @@ const StarRating = (props) => {
               name="rating"
               value={ratingValue}
               onClick={() => {
-                updaterate(ratingValue + sarating, numberOfRating + 1);
+                updaterate((ratingValue + rating), numberOfRating + 1);
               }}
             />
             <FaStar
@@ -95,10 +67,8 @@ const StarRating = (props) => {
           </label>
         );
       })}
-      <p>The Movie Rating Is :{rating}</p>
-      <h1>{movie.rating}</h1>
+      <p>The Movie Rating Is :{ String (averageofrating).substring(0,3)}</p>
       <h1>{movie.name}</h1>
-      <h1>{rater}</h1>
       <a href="#" onClick={() => moviecaster()}>
         movie cast
       </a>

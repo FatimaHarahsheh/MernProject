@@ -13,7 +13,8 @@ module.exports.addMovie = (req, res, next) => {
     trailer:req.body.trailer,
     year:req.body.year,
     rating:req.body.rating,
-    numberOfRating:req.body.numberOfRating
+    numberOfRating:req.body.numberOfRating,
+    averageofrating:req.body.averageofrating
   }
   Movie.create(obj)
     .then((movie) => {
