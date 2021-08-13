@@ -21,6 +21,18 @@ const MovieSchema = new mongoose.Schema(
     year: {
       type: Number,
     },
+    casting: {
+      actorone:{ type:String},
+      actortwo:{ type:String},
+      actorthree:{ type:String},
+      actorfour:{ type:String},
+      actorfive:{ type:String},
+      castimg1:{type:String},
+      castimg2:{type:String},
+      castimg3:{type:String},
+      castimg4:{type:String},
+      castimg5:{type:String},
+    },
     rating:{
       type: Number,
     },

@@ -6,16 +6,17 @@ module.exports.addMovie = (req, res, next) => {
   var obj = {
     name: req.body.name,
     poster: req.body.poster,
-    rating:req.body.rating,
     images: req.body.images,
-    description:req.body.description,
-    language:req.body.language,
-    trailer:req.body.trailer,
-    year:req.body.year,
-    rating:req.body.rating,
-    numberOfRating:req.body.numberOfRating,
-    averageofrating:req.body.averageofrating
-  }
+    description: req.body.description,
+    language: req.body.language,
+    trailer: req.body.trailer,
+    year: req.body.year,
+    rating: req.body.rating,
+    numberOfRating: req.body.numberOfRating,
+    averageofrating: req.body.averageofrating,
+    casting: { actorone: req.body.actorone, actortwo: req.body.actortwo, actorthree: req.body.actorthree, actorfour: req.body.actorfour, actorfive: req.body.actorfive,
+     castimg1: req.body.castimg1, castimg2: req.body.castimg2, castimg3: req.body.castimg3, castimg4: req.body.castimg4, castimg5: req.body.castimg5,}
+  } 
   Movie.create(obj)
     .then((movie) => {
       Category.findOneAndUpdate(
@@ -78,9 +79,9 @@ module.exports.getCategory = (req, res) => {
 };
 
 module.exports.getCategoryMovies = (request, response) => {
-  Category.findOne({name:request.params.name}).populate('movies')
-      .then(movies => response.json(movies))
-      .catch(err => response.status(400).json(err))
+  Category.findOne({ name: request.params.name }).populate('movies')
+    .then(movies => response.json(movies))
+    .catch(err => response.status(400).json(err))
 }
 
 module.exports.allCats = (req, res) => {
