@@ -5,7 +5,8 @@ import { Animated } from "react-animated-css";
 // import Dropdown from 'react-bootstrap/Dropdown';
 // import DropdownButton from 'react-bootstrap/DropdownButton';
 import "../static/css/CastingStyle.css"
-const StarRating = (props) => {
+export default props => {  ///////5
+  const {movieID} = props/////6
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const [movie, setmovie] = useState({});
@@ -16,9 +17,8 @@ const StarRating = (props) => {
   const [casting, setcasing] = useState({});
   const [wed,setwed] = useState("90px")
   // const [name,setName]=useState("");
-  const id = "6116e83a449a5f10ec0dd99b"; //changed after to id from props
   useEffect(() => {
-    axios.get("http://localhost:8000/api/movie/" + id).then((res) => {
+    axios.get(`http://localhost:8000/api/movie/${movieID}`).then((res) => {///7
       setmovie(res.data);
       // setName(res.data.name)
       setnum(res.data.numberOfRating);
@@ -32,7 +32,7 @@ const StarRating = (props) => {
 
   const updaterate = (rating, numberOfRating) => {
     axios
-      .put("http://localhost:8000/api/edit/" + id, {
+      .put(`http://localhost:8000/api/edit/${movieID}`, {
         rating,
         numberOfRating,
         averageofrating: rating / numberOfRating
@@ -127,4 +127,3 @@ const StarRating = (props) => {
   );
 };
 
-export default StarRating;
