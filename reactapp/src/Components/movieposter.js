@@ -5,54 +5,60 @@ import "@splidejs/splide/dist/css/themes/splide-sea-green.min.css";
 import "../static/css/top_5.css";
 import axios from "axios";
 
-const Movieposter =(props) =>{
-    const [movies, setmovies] = useState([]);
-    const [averageofrating, setavg] = useState();
+const Movieposter = (props) => {
+  const [movies, setmovies] = useState([]);
+  const [averageofrating, setavg] = useState();
+  const [loaded,setLoaded]= useState(false)
 
-    useEffect(() => {
-        axios.get("http://localhost:8000/api/movies" )
-            .then(res => {setmovies(res.data)
-                setavg(res.data.averageofrating);
-            });
-            
-    }, [])
-  
-    return (
-      <div className="top-5">
-        <h1>trending now:</h1>
-        <Splide
-          options={{
-            rewind: true,
-            perPage: 5,
-            perMove: 1,
-            gap: "0.5rem",
-            autoplay     : true,
-            pauseOnHover : false,
-            resetProgress: false,
-            arrows       : 'slider',
-            speed:400,
-            interval:2000
-          }}
-        >
-          {movies.map((movie, i) => {
-            return (
-              <SplideSlide>
-      <div class="hovereffect">
-  
-                              <img class="img-responsive"  src={movie.poster} style={{width:'350px',height:'350px'}} />
-                              <div class="overlay">
-                                  <p>{movie.name}</p>
-                                  
-                                  <p>rate: {String(averageofrating).substring(0, 3)} / 5</p>
-                                 <br /><br /><br /><br /><br /><br /><br /><br />
-                                  <a href="#" style={{  padding: '1em 1.5em'
-,minWidth:'300px',height:'200px',textDecoration:'none',border:'1px solid black',background:'gray',borderRadius:'5%' }}>more details</a>
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/movies").then((res) => {
+      setmovies(res.data);
+      setLoaded(true)
+      setavg(res.data.averageofrating);
+    });
+  }, []);
 
-                                  </div></div>
-                                      </SplideSlide>
-            );
-          })}
-   </Splide></div> );
-  };
-  
-export default Movieposter
+  return (
+    <div>
+      {loaded && (
+        <div class="hovereffect" style={{width:"250px"}}>
+          <img
+            class="img-responsive"
+            src={movies[0].poster}
+            style={{ width: "260px", height: "350px" }}
+            alt=""
+          />
+          <div class="overlay">
+            <p>{movies[0].name}</p>
+
+            <p>rate: {String(averageofrating).substring(0, 3)} / 5</p>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <a
+              href="#"
+              style={{
+                padding: "1em 1.5em",
+                minWidth: "300px",
+                height: "200px",
+                textDecoration: "none",
+                border: "1px solid black",
+                background: "gray",
+                borderRadius: "5%",
+              }}
+            >
+              more details
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Movieposter;

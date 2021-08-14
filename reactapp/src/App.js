@@ -1,22 +1,20 @@
 import "./App.css"; 
-import SearchForm from "./Components/SearchForm";
-import StarRating from "./Components/StarRating";
-import Header from "./Components/Header";
-import Top5 from "./Components/Top5";
-import Movieposter from "./Components/movieposter";
-import Popularity from "./Components/Popularity";
+import SearchForm from "./components/SearchForm";
+import StarRating from "./components/StarRating";
+import Header from "./components/Header";
+import Top5 from "./components/Top5";
+import Movieposter from "./components/movieposter";
+import Popularity from "./components/Popularity";
 
 
 function App() {
   return (
     <div className="App">
-      <StarRating/>
-      {/* <SearchForm />
-     
-      {/* <Header/> */}
+      <SearchForm />
+      {/* <StarRating/> */}
       <Movieposter />
-      <Popularity />
-       <Top5/>
+      {/* <Popularity />
+       <Top5/> */}
     </div>
   );
 }
