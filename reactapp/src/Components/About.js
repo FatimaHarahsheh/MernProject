@@ -22,11 +22,11 @@ export default function Watch() {
       <div className="video-box" style={{padding:40}}>
       <img style={{width:300, float:"left"}}  src="https://cdn.discordapp.com/attachments/836357990432636929/875775970886418452/blue.png" />
           <h2>About us</h2>
-         
-      <p style={{textAlign:"justify"}} >   Welcome to Blue Movies, your number one source for all your favorite movies. We're dedicated to giving you the very best of movies, with a focus on top rated, different genres, and featured.
+  
+      <p style={{textAlign:"justify"}} >   Welcome to SNACKS-MV, your number one source for all your favorite movies. We're dedicated to giving you the very best of movies, with a focus on top rated, different genres, and featured.
 
 
-Founded in 2021 by Ameena Allan, Fatima Harahsheh and Omar Hawwash, Blue Movies is a new startup in Ramallahe. When Ameena Allan, Fatima Harahsheh and Omar Hawwash first started out, their passion for  "all in one free movies" drove them to work all day, do tons of research, and not sleep. so that Blue Movies can offer you "free amazing movies". We hope to serve people all over the world, and are thrilled that we're able to turn our passion into our own website.
+Founded in 2021 by Ameena Allan, Fatima Harahsheh and Omar Hawwash,  SNACKS-MV is a new startup in Ramallahe. When Ameena Allan, Fatima Harahsheh and Omar Hawwash first started out, their passion for  "all in one free movies" drove them to work all day, do tons of research, and not sleep. so that SNACKS-MV can offer you "free amazing movies". We hope to serve people all over the world, and are thrilled that we're able to turn our passion into our own website.
 
 
 we hope you enjoy our website as much as we enjoy offering it to you. If you have any questions or comments, please don't hesitate to contact us.

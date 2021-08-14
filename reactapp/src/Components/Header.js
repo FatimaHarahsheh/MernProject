@@ -73,7 +73,7 @@ const Header = () => {
               <img className="header-img" src={logo} alt="logo" />
               <Link to="/" className="no-underline">
               <Typography variant="h4" color="secondary" className={classes.headerTitle}>
-              Blue Movies
+                SNACKS-MV
               </Typography></Link>
             </IconButton>
             <div className={classes.list}>
