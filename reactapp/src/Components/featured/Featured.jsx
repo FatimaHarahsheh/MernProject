@@ -2,8 +2,10 @@
     import "./featured.scss";
 
     export default function Featured({ type }) {
+        var OnHoverChange = "https://th.bing.com/th/id/R.526b332351db8932d26533cb4edc61b4?rik=a3OUag3awegQSg&pid=ImgRaw&r=0"
     return (
         <div className="featured">
+        
         {type && (
             <div className="category">
             <span>{type === "movie" ? "Movies" : "Series"}</span>
@@ -26,8 +28,10 @@
             </div>
         )}
         <img
-            src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            src="https://images.hdqwalls.com/download/neo-matrix-4k-y0-3840x2160.jpg"
             alt=""
+            onMouseOver={e => e.currentTarget.src =OnHoverChange}
+            onMouseLeave={e => e.currentTarget.src ="https://images.hdqwalls.com/download/neo-matrix-4k-y0-3840x2160.jpg"}
         />
         <div className="info">
             <img
@@ -41,10 +45,7 @@
             temporibus eum earum?
             </span>
             <div className="buttons">
-            <button className="play">
-                <PlayArrow />
-                <span>Play</span>
-            </button>
+          
             <button className="more">
                 <InfoOutlined />
                 <span>Info</span>
