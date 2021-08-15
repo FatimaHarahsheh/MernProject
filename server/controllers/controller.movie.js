@@ -37,7 +37,7 @@ module.exports.allMovies = (req, res) => {
     .catch((err) => res.status(400).json({ errorMessage: err }));
 };
 module.exports.topMovies = (req, res) => {
-  Movie.find({}).sort({rating:'1'})
+  Movie.find({}).sort({averageofrating:'-1'})
     .then((Movies) => res.json(Movies))
     .catch((err) => res.status(400).json({ errorMessage: err }));
 };

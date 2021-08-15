@@ -18,9 +18,9 @@ export default props => {
     <>
     
     {loaded &&
-    <div>
-         <StarRating movieID={movie._id} /> //4
-    <div className="vid-desc">
+    <div >
+         <StarRating movieID={movie._id} />
+    <div className="vid-desc" >
       <div className="video-box">
         <Splide
           options={{

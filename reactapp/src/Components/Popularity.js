@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-
-
+import Top5 from './Top5'
+import '../static/css/imagehover.css'
 const Popularity = () => {
     const [movies, setmovie] = useState([]);
     useEffect(() => {
@@ -13,9 +13,12 @@ const Popularity = () => {
                 
     return (
         <>
-                <div style={{width:"1200px"}}>                 
-                <div style={{ display:'flex',justifyContent:'space-evenly' ,margin:'10px' ,width:"1200px",flexWrap:'wrap'}}>
+        <Top5 />
 
+                <div style={{width:"1500px",backgroundColor: 'rgba(24, 22, 22, 0.8',marginLeft:'30px'}}>  
+                <h1 style={{color:'white'}}>Trending Now</h1>
+               
+                <div style={{ display:'flex',justifyContent:'space-evenly' ,margin:'10px' ,width:"1500px",flexWrap:'wrap'}}>
 
             {movies.map((movie, idx)=>{
                 return(
@@ -25,9 +28,9 @@ const Popularity = () => {
                                 <p>{movie.name}</p>
                                 <p>{movies.year}</p>
 
-                                <p>rate: {movie.rating}/5</p>
+                                <p>rate: {String(movie.averageofrating).substring(0, 3)}/5</p>
                                 </figcaption>
-                                <a href="#"></a>
+                                <a href= {`/movie/${movie._id}`} > </a>
                             </figure>
                    
                 )

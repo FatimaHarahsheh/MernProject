@@ -44,15 +44,16 @@ export default props => {  ///////5
 
     <div >
       <div style={{ display: "flex",width:'500px' }}>
-        <img src={movie.poster} style={{ width: "280px", height: "350px", margin: "10px",background:'none' }} />
+        <img src={movie.poster} style={{ width: "280px", height: "350px", margin: "10px",background:'none',marginTop:'-0px'}} />
         < div >
 
-          <div style={{ width: "500px",background:'red',borderRadius:'5%' }}>
-            <h1>Movie Name: {movie.name}</h1>
-            <h3>Movie Language: {movie.language}</h3>
-            <h3>Relase Date: {movie.year}</h3>
-            <h3 >The Movie Rating Is :{String(averageofrating).substring(0, 3)} / 5 </h3>
-
+          <div style={{ width: "500px",height:'350px',background:'#1f323d',borderTopRightRadius:'5%',borderBottomRightRadius:'5%',marginLeft:'-10px' }}>
+            <div style={{marginLeft:'10px'}}>
+            <h1 style={{color:'white'}}>Movie Name: {movie.name}</h1>
+            <h3 style={{color:'white'}}>Movie Language: {movie.language}</h3>
+            <h3 style={{color:'white'}}>Relase Date: {movie.year}</h3>
+            <h3 style={{color:'white'}}>The Movie Rating Is :{String(averageofrating).substring(0, 3)} / 5 </h3>
+      </div>
          
           <div style={{ width: "300px", marginLeft: "50px", display: "flex", }}>
 
@@ -89,9 +90,9 @@ export default props => {  ///////5
 
             </div>
           </div>
-          <br /> <br /> <br /> <br /> <br /> <br />  
+          <br /> <br /> <br /> 
           </div>
-        
+        <center>
           <div className="dropdown" style={{marginTop:'-50px'}}>
                 <button type="button" class="btn btn-outline-secondary">Movie Cast</button>
                 <div class="dropdown-content">
@@ -113,9 +114,11 @@ export default props => {  ///////5
               
                 </div>
               </div>
-         
+              </center>
+
         </div>
       </div>
+      
       <div>
       
 

@@ -6,21 +6,21 @@ import "../static/css/top_5.css";
 import axios from "axios";
 
 const Top5 = (props) => {
-  const {movies} = props
+  const [movies,setmovies] = useState([])
   const [averageofrating, setavg] = useState();
 
-  //this in view page
+  // this in view page
 
-  // useEffect(() => {
-  //     axios.get("http://localhost:8000/api/topmovies" )
-  //         .then(res => {setmovies(res.data)
-  //           setavg(res.data.averageofrating);
-  //         });
-  // }, [])
+  useEffect(() => {
+      axios.get("http://localhost:8000/api/topmovies" )
+          .then(res => {setmovies(res.data)
+            setavg(res.data.averageofrating);
+          });
+  }, [])
 
   return (
     <div className="top-5">
-      <h1>trending now:</h1>
+      <h1>Top 5 Movies:</h1>
       <Splide
         options={{
           rewind: true,
@@ -43,8 +43,8 @@ const Top5 = (props) => {
                             <img class="img-responsive"  src={movie.poster} style={{width:'350px',height:'350px'}} />
                             <div class="overlay">
                                 <p>{movie.name}</p>
-                                <p>rate: {String(averageofrating).substring(0, 3)} / 5</p>
-                                <a href="#"></a>
+                                <p>rate: {String(movie.averageofrating).substring(0, 3)} / 5</p>
+                                <a href= {`/movie/${movie._id}`} > more details </a>
                                 </div></div>
                                     </SplideSlide>
           );
