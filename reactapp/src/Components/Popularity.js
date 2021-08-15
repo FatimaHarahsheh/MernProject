@@ -2,6 +2,8 @@ import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import Top5 from './Top5'
 import '../static/css/imagehover.css'
+import "../static/css/top_5.css";
+
 const Popularity = () => {
     const [movies, setmovie] = useState([]);
     useEffect(() => {
@@ -14,7 +16,7 @@ const Popularity = () => {
     return (
         <>
         <Top5 />
-
+        <div >
                 <div style={{width:"1500px",backgroundColor: 'rgba(24, 22, 22, 0.8',marginLeft:'30px'}}>  
                 <h1 style={{color:'white'}}>Trending Now</h1>
                
@@ -22,9 +24,9 @@ const Popularity = () => {
 
             {movies.map((movie, idx)=>{
                 return(
-                               <figure className="imghvr-push-up" style={{width:'300px',height:'300px',margin:'20px'}} >
-                                <img src={movie.poster} style={{width:'300px',height:'300px'}} />
-                                <figcaption>
+                               <figure class="hovereffect" style={{width:'300px',height:'300px',margin:'20px'}} >
+                                <img class="img-responsive" src={movie.poster} style={{width:'300px',height:'300px'}} />
+                                <figcaption class="overlay">
                                 <p>{movie.name}</p>
                                 <p>{movies.year}</p>
 
@@ -35,7 +37,7 @@ const Popularity = () => {
                    
                 )
             })}
-        </div>   </div></>
+        </div> </div>  </div></>
     )
 }
 

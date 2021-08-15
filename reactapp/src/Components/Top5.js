@@ -44,6 +44,7 @@ const Top5 = (props) => {
                             <div class="overlay">
                                 <p>{movie.name}</p>
                                 <p>rate: {String(movie.averageofrating).substring(0, 3)} / 5</p>
+                                <br /><br /><br /><br /><br /><br />
                                 <a href= {`/movie/${movie._id}`} > more details </a>
                                 </div></div>
                                     </SplideSlide>
